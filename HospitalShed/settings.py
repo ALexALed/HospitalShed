@@ -37,8 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Sheduler',
-    'Doctor',
+    'Doctors',
+    'Scheduler',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,8 +57,7 @@ ROOT_URLCONF = 'HospitalShed.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,3 +102,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+# 0-monday, 1-thuesday...6-sunday
+HOSPITAL_WORK_SCHEDULE = {
+    0: {'start': 9, 'end': 18},
+    1: {'start': 9, 'end': 18},
+    2: {'start': 9, 'end': 18},
+    3: {'start': 9, 'end': 18},
+    4: {'start': 9, 'end': 18},
+    5: {'start': 0, 'end': 0},
+    6: {'start': 0, 'end': 0}
+}
